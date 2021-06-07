@@ -1,0 +1,14 @@
+#query to summarise the statistics of the films in thr Rockbuster database
+SELECT MIN(rental_duration) AS min_rental_duration, 
+	MAX(rental_duration) AS max_rental_duration, 
+	AVG(rental_duration) AS average_rental_duration, 
+	COUNT(rental_duration) AS count_of_rental_duration,
+	MIN(rental_rate) AS min_rental_rate, 
+	MAX(rental_rate) AS max_rental_rate, 
+	AVG(rental_rate) AS avg_rental_rate, 
+	COUNT(rental_rate) AS count_of_rental_rate,
+	MIN(replacement_cost) AS min_replacement_cost, 
+	MAX(replacement_cost) AS max_replacement_cost, 
+	AVG(replacement_cost) AS avg_replacement_cost, 
+	COUNT(replacement_cost) AS count_of_replacement_cost
+FROM film;
