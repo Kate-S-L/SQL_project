@@ -1,0 +1,16 @@
+#query to find the top 5 customers in terms of total spent on orders
+SELECT A.customer_id,
+	first_name,
+	last_name,
+	country,
+	city,
+SUM(A.amount) AS Total_paid
+FROM payment A
+INNER JOIN customer B on A.customer_id = B.customer_id
+INNER JOIN address C on B.address_id = C.address_id
+INNER JOIN city D on C.city_id = D.city_id
+INNER JOIN country E on D.country_id = E.country_id 
+WHERE city IN ('Aurora', 'Tokat', 'Tarsus', ' Atlixco', 'Emeishan', 'Pontianak', 'Shimoga', 'Aparecida de Goinia, ‘Zalantun', 'Taguig')
+GROUP BY country, city, A.customer_id, first_name, last_name
+ORDER BY Total_paid DESC
+LIMIT 5
